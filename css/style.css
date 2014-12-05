@@ -1,0 +1,8 @@
+.carousel-inner > .item > img {
+  width: 100%;
+  height: 600px;
+}
+
+#anuncios {
+  margin-top: 20px;
+}

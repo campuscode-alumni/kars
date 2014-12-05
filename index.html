@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Carros Usados</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -29,13 +30,13 @@
         </div>
       </div>
     </nav>
-    <div class="row">
+    <section id="destaques" class="row">
       <div class="col-md-12">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
           </ol>
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
@@ -53,17 +54,50 @@
             </div>
           </div>
           <!-- Controls -->
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Anterior</span>
           </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Próximo</span>
           </a>
         </div>
       </div>
-    </div>
+    </section>
+    <div class="clearfix"/>
+    <section id="anuncios" class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/carro03.jpg" alt="Carro em destaque">
+          <div class="caption">
+            <h3>Thumbnail label</h3>
+            <p>R$10.000,00</p>
+            <p><a href="detalhes.html" class="btn btn-primary" role="button">Comprar</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/carro04.jpg" alt="Carro em destaque">
+          <div class="caption">
+            <h3>Thumbnail label</h3>
+            <p>R$25.000,00</p>
+            <p><a href="detalhes.html" class="btn btn-primary" role="button">Comprar</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="images/carro05.jpg" alt="Carro em destaque">
+          <div class="caption">
+            <h3>Thumbnail label</h3>
+            <p>R$9.000,00</p>
+            <p><a href="detalhes.html" class="btn btn-primary" role="button">Comprar</a></p>
+          </div>
+        </div>
+      </div>      
+    </section>
   </div>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
