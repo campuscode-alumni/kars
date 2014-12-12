@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+		      <div class="container-fluid">
+		        <div class="navbar-header">
+		         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		         </button>
+		          	<a class="navbar-brand" href="#">Kars</a>
+		        </div>
+		       	 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		          <ul class="nav navbar-nav">
+		            <li><a href="#">Novos</a></li>
+		            <li><a href="#">Usados</a></li>
+		            <li><a href="#">Contato</a></li>
+		          </ul>
+		         </div>
+		        </div>
+		    </nav>
+		  	<ol class="breadcrumb">
+		  	 <li> Home </li>
+		  	 <li> Detalhes </li> 
+		  	 <li> PALIO XXXXX </li>
+		  	</ol>
+			<section id="anuncios">
+				<ul class="nav nav-tabs" id="tabs-marcas">
+				  <li role="presentation" class="active"><a href="#volks"><img src="images/logo_vw.jpg" class="logo"></a></li>
+				  <li role="presentation"><a href="#fiat"><img src="images/logo_fiat.jpg" class="logo"></a></li>
+				  <li role="presentation"><a href="#ford"><img src="images/logo_ford.jpg" class="logo"></a></li>
+				  <li role="presentation"><a href="#honda"><img src="images/logo_honda.jpg" class="logo"></a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="volks" class="tab-pane active">
+						<div class="row anuncio">
+							<div class="col-md-3 col-lg-3">
+								<img src="images/carro01.jpg" class="img-rounded img-responsive">
+							</div>
+							<div class="col-md-9 col-lg-9">
+								<h1> Volks WV 2004 - 2014/2014 </h1>
+								<h2> R$ 48,900 </h2>
+								<p> Entre e confira mais detalhes </p>
+							</div>
+						</div>
+						<div class="row anuncio destaque">	
+							<div class="col-md-3 col-lg-3">
+								<img src="images/carro01.jpg" class="img-rounded img-responsive">
+							</div>
+							<div class="col-md-9 col-lg-9">
+								<h1> Volks WV 2004 - 2014/2014 </h1>
+								<h2> R$ 48,900 </h2>
+								<p> Entre e confira mais detalhes </p>
+							</div>
+						</div>	
+
+					</div>
+
+					<div id="fiat" class="tab-pane">
+						<div class="row anuncio">
+							<div class="col-md-3 col-lg-3">
+								<img src="images/carro02.jpg" class="img-rounded img-responsive">
+							</div>
+							<div class="col-md-9 col-lg-9">
+								<h1> Volks WV 2004 - 2014/2014 </h1>
+								<h2> R$ 48,900 </h2>
+								<p> Entre e confira mais detalhes </p>
+							</div>
+						</div>
+						<div class="row anuncio destaque">	
+							<div class="col-md-3 col-lg-3">
+								<img src="images/carro02.jpg" class="img-rounded img-responsive">
+							</div>
+							<div class="col-md-9 col-lg-9">
+								<h1> Volks WV 2004 - 2014/2014 </h1>
+								<h2> R$ 48,900 </h2>
+								<p> Entre e confira mais detalhes </p>
+							</div>
+						</div>	
+					
+					</div>
+					<div id="ford" class="tab-pane">
+						<div class="row anuncio">
+							<div class="col-md-3 col-lg-3">
+								<img src="images/carro03.jpg" class="img-rounded img-responsive">
+							</div>
+							<div class="col-md-9 col-lg-9">
+								<h1> Volks WV 2004 - 2014/2014 </h1>
+								<h2> R$ 48,900 </h2>
+								<p> Entre e confira mais detalhes </p>
+							</div>
+						</div>
+						<div class="row anuncio destaque">	
+							<div class="col-md-3 col-lg-3">
+								<img src="images/carro03.jpg" class="img-rounded img-responsive">
+							</div>
+							<div class="col-md-9 col-lg-9">
+								<h1> Volks WV 2004 - 2014/2014 </h1>
+								<h2> R$ 48,900 </h2>
+								<p> Entre e confira mais detalhes </p>
+							</div>
+						</div>	
+
+					
+					</div>
+
+					<div id="honda" class="tab-pane">
+					1
+					2
+					3
+					
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  		<script src="javascript/bootstrap.min.js"></script>
+
+		<script>
+		   $('#tabs-marcas a').click(function (e) {
+		     e.preventDefault()
+		     $(this).tab('show')
+		   })
+		 </script> 
+
+	</body>
+</html>
