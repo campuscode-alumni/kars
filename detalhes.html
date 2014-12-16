@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,24 +41,16 @@
           <img src="images/carro01.jpg" class="img-thumbnail img-responsive" height="200px">
         </div>
         <div class="col-md-6 col-sm-12">
-          <div class="row">
           <h1>Nome e Modelo do Carro</h1>
-            <h2>Preço: <span id="preco_carro">10.000,00</span> <small>(com financiamento)</small></h2>            
-            <ul class="list-unstyled">
-              <li>Banco de couro</li> 
-              <li>Ar condicionado</li> 
-              <li>Vidro e trava eletrica</li> 
-              <li>Rodas de liga leve</li> 
-            </ul>
-            <button  class="btn btn-danger hidden-print">Comprar</button>
-            <button onclick="javascript:detalhesFinanciamento()" class="btn btn-success hidden-print">Detalhes Financiamento</button>
-          </div>
-          <div class="row">
-            <div class="col-md-12 box-shadow invisible" id="financiamento">
-              <h3>Detalhes do financiamento</h3>
-              <div class="container-fluid" id="detalhes_financiamento"></div>
-            </div>
-          </div>
+          <h2>Preço: <span id="preco_carro">10.000,00</span> <small>(com financiamento)</small></h2>            
+          <ul class="list-unstyled">
+            <li>Banco de couro</li> 
+            <li>Ar condicionado</li> 
+            <li>Vidro e trava eletrica</li> 
+            <li>Rodas de liga leve</li> 
+          </ul>
+          <button  class="btn btn-danger hidden-print">Comprar</button>
+          <button onclick="javascript:detalhesFinanciamento()" class="btn btn-success hidden-print">Detalhes Financiamento</button>
         </div>
       </div>
 
@@ -95,32 +87,6 @@
       e.preventDefault()
       $(this).tab('show')
     })
-  </script>
-  <script type="text/javascript">
-function detalhesFinanciamento(){
-    // exception se não houver tag
-    precoContent = document.getElementById("preco_carro").textContent;
-    
-    precoString = precoContent.replace(/[,.]/g,"").slice(0,-2);
-    preco = parseInt(precoString);
-    
-    valorParcela = (preco/12)*1.001^11; // progressao geometrica
-    valorFinal = valorParcela * 12; 
-    
-    console.log("valor = " + preco);
-    console.log("valor financiado = " + valorFinal);
-    
-    html =  "<p><strong>Valor Financiado</strong> = R$ "+ preco +",00</p>";
-    html += "<p><strong>Valor da parcela</strong> = R$ "+ valorParcela +",00</p>";
-    html += "<p><strong>Número de parcelas</strong> = 12</p>";
-    html += "<p><strong>Valor Final</strong> = R$ "+ valorFinal +",00</p>";
-    
-    tagFinanciamento = document.getElementById("financiamento");
-    tagFinanciamento.classList.remove("invisible");
-    
-    tagDetalhes = document.getElementById("detalhes_financiamento");
-    tagDetalhes.innerHTML = html;
-}
   </script>
 </body>
 </html>
