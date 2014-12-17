@@ -41,19 +41,27 @@
           <img src="images/carro01.jpg" class="img-thumbnail img-responsive" height="200px">
         </div>
         <div class="col-md-6 col-sm-12">
-          <h1>Nome e Modelo do Carro</h1>
-          <h2>Preço: <span id="preco_carro">10.000,00</span> <small>(com financiamento)</small></h2>            
-          <ul class="list-unstyled">
-            <li>Banco de couro</li> 
-            <li>Ar condicionado</li> 
-            <li>Vidro e trava eletrica</li> 
-            <li>Rodas de liga leve</li> 
-          </ul>
-          <button  class="btn btn-danger hidden-print">Comprar</button>
-          <button onclick="javascript:detalhesFinanciamento()" class="btn btn-success hidden-print">Detalhes Financiamento</button>
+          <div class="row">
+            <h1>Nome e Modelo do Carro</h1>
+            <h2>Preço: <span id="preco_carro">10.000,55</span> <small>(com financiamento)</small></h2>            
+            <ul class="list-unstyled">
+              <li>Banco de couro</li> 
+              <li>Ar condicionado</li> 
+              <li>Vidro e trava eletrica</li> 
+              <li>Rodas de liga leve</li> 
+            </ul>
+            <button class="btn btn-danger hidden-print">Comprar</button>
+            <button class="btn btn-success hidden-print" onclick="financiamento(12)">Detalhes Financiamento</button>
+          </div>
+          <div class="row">
+            <div class="col-md-12 invisible" id="financiamento">
+              <h3>Detalhes do Financiamento</h3>
+              <div class="container-fluid" id="detalhes_do_financiamento"></div>
+
+            </div>
+          </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-md-8">
           <ul class="nav nav-tabs" id="tabs_kars">
@@ -87,6 +95,50 @@
       e.preventDefault()
       $(this).tab('show')
     })
+  </script>
+  <script type="text/javascript">
+function financiamento(parcelas){  
+  var preco = preco2Number();
+  var parcela = preco / parcelas;
+  //CamelCase
+  var parcelaComJuros = parcela * 1.001;
+  var precoFinal = parcelaComJuros * parcelas;
+
+  $("detalhes_do_financiamento").innerHTML = imprimeResultado(obterPreco(), parcelaComJuros, precoFinal);
+}
+
+function obterPreco(){
+  var precoContent = $("preco_carro").textContent;
+  return precoContent;
+}
+
+function preco2Number(){
+  var preco = obterPreco().replace(".","").replace(",",".");
+  return preco;
+}
+
+function exibeFinanciamento(){
+  $("financiamento").classList.remove("invisible");
+}
+
+function $(id){
+  return document.getElementById(id);
+}
+
+function formataPreco(precoFinalBanana){
+   var precoComVirgula = Math.round(precoFinalBanana).toString().substr(0,2)+"." + Math.round(precoFinalBanana).toString().substr(-3) + "," + precoFinalBanana.toFixed(2).toString().substr(-2); //10
+   return precoComVirgula;
+}
+
+function imprimeResultado(precoCarro, parcelaComJuros, precoFinal){
+  exibeFinanciamento();
+  var parcelaComJurosFormatado = parcelaComJuros.toString().replace(".",",");
+  var conteudoHTML    = "<p>Valor financiado: R$ " + precoCarro + "</p>";
+  conteudoHTML       += "<p>Valor da parcela: R$ " + parcelaComJurosFormatado +"</p>";
+  conteudoHTML       += "<p>Preço: R$ " + formataPreco(precoFinal) +"</p>";
+
+  return conteudoHTML;
+}
   </script>
 </body>
 </html>
