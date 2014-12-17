@@ -43,7 +43,7 @@
         <div class="col-md-6 col-sm-12">
           <div class="row">
             <h1>Nome e Modelo do Carro</h1>
-            <h2>Preço: <span id="preco_carro">10.000,55</span> <small>(com financiamento)</small></h2>            
+            <h2>Preço: <span id="preco_carro">3.333.331,55</span> <small>(com financiamento)</small></h2>            
             <ul class="list-unstyled">
               <li>Banco de couro</li> 
               <li>Ar condicionado</li> 
@@ -57,7 +57,6 @@
             <div class="col-md-12 invisible" id="financiamento">
               <h3>Detalhes do Financiamento</h3>
               <div class="container-fluid" id="detalhes_do_financiamento"></div>
-
             </div>
           </div>
         </div>
@@ -100,44 +99,70 @@
 function financiamento(parcelas){  
   var preco = preco2Number();
   var parcela = preco / parcelas;
-  //CamelCase
   var parcelaComJuros = parcela * 1.001;
   var precoFinal = parcelaComJuros * parcelas;
 
-  $("detalhes_do_financiamento").innerHTML = imprimeResultado(obterPreco(), parcelaComJuros, precoFinal);
-}
+  imprimeResultado(obterPreco(), parcelaComJuros, precoFinal);
+};
 
 function obterPreco(){
-  var precoContent = $("preco_carro").textContent;
+  var precoContent = $2("preco_carro").textContent;
   return precoContent;
 }
 
 function preco2Number(){
-  var preco = obterPreco().replace(".","").replace(",",".");
+  var preco = obterPreco().replace(/[.]/g,"").replace(",",".");
   return preco;
 }
 
 function exibeFinanciamento(){
-  $("financiamento").classList.remove("invisible");
+  $2("financiamento").classList.remove("invisible");
 }
 
-function $(id){
+function $2(id){
   return document.getElementById(id);
 }
 
-function formataPreco(precoFinalBanana){
-   var precoComVirgula = Math.round(precoFinalBanana).toString().substr(0,2)+"." + Math.round(precoFinalBanana).toString().substr(-3) + "," + precoFinalBanana.toFixed(2).toString().substr(-2); //10
-   return precoComVirgula;
+function formataPreco(precoFinal){
+  var precoArredondado = Math.round(precoFinal).toString();
+
+  var tamanho = precoArredondado.length;
+  var precoComVirgula = "";
+  var n = -3;
+  
+  if(tamanho <= n * -1){
+    return parseFloat(precoFinal.toString()).toFixed(2).replace(".",",");
+  }
+
+  while((n + 3) > (tamanho * -1)){
+    if (tamanho >= n * -1){
+      precoComVirgula = precoArredondado.substr(n).substr(0,3) + "." + precoComVirgula;
+    } else {
+      precoComVirgula = precoArredondado.substr(0,(tamanho + (n+3)))+ "." + precoComVirgula 
+    }
+    n = n - 3;
+  }
+  precoComVirgula = precoComVirgula.substr(0,precoComVirgula.length - 1);
+  precoComVirgula = precoComVirgula + "," + parseFloat(precoFinal).toFixed(2).substr(-2)
+
+  return precoComVirgula;
+}
+
+function formataPrecoReduzida(precoFinal){
+    return precoFinal
+       .toFixed(2)
+       .replace(".", ",") 
+       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 }
 
 function imprimeResultado(precoCarro, parcelaComJuros, precoFinal){
   exibeFinanciamento();
-  var parcelaComJurosFormatado = parcelaComJuros.toString().replace(".",",");
-  var conteudoHTML    = "<p>Valor financiado: R$ " + precoCarro + "</p>";
-  conteudoHTML       += "<p>Valor da parcela: R$ " + parcelaComJurosFormatado +"</p>";
-  conteudoHTML       += "<p>Preço: R$ " + formataPreco(precoFinal) +"</p>";
+  
+  var conteudoHTML = "<p>Valor financiado: R$ " + precoCarro + "</p>";
+  conteudoHTML    += "<p>Valor da parcela: R$ " + formataPrecoReduzida(parcelaComJuros) +"</p>";
+  conteudoHTML    += "<p>Preço: R$ " + formataPrecoReduzida(precoFinal) +"</p>";
 
-  return conteudoHTML;
+  $2("detalhes_do_financiamento").innerHTML =  conteudoHTML;
 }
   </script>
 </body>
