@@ -1,169 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Carros Usados</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carros Usados</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Kars</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="#">Novos</a></li>
-            <li><a href="#">Usados</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <ol class="breadcrumb">
-      <li>Home</li>
-      <li>Detalhes</li>
-      <li class="active">Carro</li>
-    </ol>
-    <section>
-      <div class="row">
-        <div class="col-md-6 col-sm-12">
-          <img src="images/carro01.jpg" class="img-thumbnail img-responsive" height="200px">
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <div class="row">
-            <h1>Nome e Modelo do Carro</h1>
-            <h2>Preço: <span id="preco_carro">3.333.331,55</span> <small>(com financiamento)</small></h2>            
-            <ul class="list-unstyled">
-              <li>Banco de couro</li> 
-              <li>Ar condicionado</li> 
-              <li>Vidro e trava eletrica</li> 
-              <li>Rodas de liga leve</li> 
-            </ul>
-            <button class="btn btn-danger hidden-print">Comprar</button>
-            <button class="btn btn-success hidden-print" onclick="financiamento(12)">Detalhes Financiamento</button>
-          </div>
-          <div class="row">
-            <div class="col-md-12 invisible" id="financiamento">
-              <h3>Detalhes do Financiamento</h3>
-              <div class="container-fluid" id="detalhes_do_financiamento"></div>
+    <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Kars</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Novos</a></li>
+                        <li><a href="#">Usados</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8">
-          <ul class="nav nav-tabs" id="tabs_kars">
-            <li class="active"><a href="#dados_anunciante">Dados Anuncianente</a></li>
-            <li><a href="#detalhes_tecnicos">Detalhes Tecnicos</a></li>
-            <li><a href="#detalhes_financiamento">Detalhes Financiamento</a></li>
-          </ul>
-          <div class="tab-content">
-            <div  id="dados_anunciante" class="tab-pane fade in active">
-              <h3>Dados do Anunciante</h3>
-              <p>dafd fadsf dfafd fadfd afafd adsf dfa dfa fdsf adf adf adf dsafd fasdf asdf dsaf dsfad daf ds</p>
-            </div> 
-            <div id="detalhes_tecnicos" class="tab-pane fade">
-              <h3>Detalhes Tecnicos</h3>
-              <p>dafd fadsf dfafd fadfd afafd adsf dfa dfa fdsf adf adf adf dsafd fasdf asdf dsaf dsfad daf ds</p>
+        </nav>
+        <ol class="breadcrumb">
+            <li>Home</li>
+            <li>Detalhes</li>
+            <li class="active">Carro</li>
+        </ol>
+        <section>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <img src="images/carro01.jpg" class="img-thumbnail img-responsive" height="200px">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="row">
+                        <h1>Nome e Modelo do Carro</h1>
+                        <h2>Preço: <span id="preco_carro">3.333.331,55</span> <small>(com financiamento)</small></h2>                        
+                        <ul class="list-unstyled">
+                            <li>Banco de couro</li> 
+                            <li>Ar condicionado</li> 
+                            <li>Vidro e trava eletrica</li> 
+                            <li>Rodas de liga leve</li> 
+                        </ul>
+                        <button class="btn btn-danger hidden-print">Comprar</button>
+                        <button class="btn btn-success hidden-print" onclick="financiamento(12)">Detalhes Financiamento</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 invisible" id="financiamento">
+                            <h3>Detalhes do Financiamento</h3>
+                            <div class="container-fluid" id="detalhes_do_financiamento"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="detalhes_financiamento" class="tab-pane fade">
-              <h3>Detalhes do Financiamento</h3>
-              <p>dafd fadsf dfafd fadfd afafd adsf dfa dfa fdsf adf adf adf dsafd fasdf asdf dsaf dsfad daf ds</p>
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="nav nav-tabs" id="tabs_kars">
+                        <li class="active"><a href="#dados_anunciante">Dados Anuncianente</a></li>
+                        <li><a href="#detalhes_tecnicos">Detalhes Tecnicos</a></li>
+                        <li><a href="#detalhes_financiamento">Detalhes Financiamento</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div    id="dados_anunciante" class="tab-pane fade in active">
+                            <h3>Dados do Anunciante</h3>
+                            <p>dafd fadsf dfafd fadfd afafd adsf dfa dfa fdsf adf adf adf dsafd fasdf asdf dsaf dsfad daf ds</p>
+                        </div> 
+                        <div id="detalhes_tecnicos" class="tab-pane fade">
+                            <h3>Detalhes Tecnicos</h3>
+                            <p>dafd fadsf dfafd fadfd afafd adsf dfa dfa fdsf adf adf adf dsafd fasdf asdf dsaf dsfad daf ds</p>
+                        </div>
+                        <div id="detalhes_financiamento" class="tab-pane fade">
+                            <h3>Detalhes do Financiamento</h3>
+                            <p>dafd fadsf dfafd fadfd afafd adsf dfa dfa fdsf adf adf adf dsafd fasdf asdf dsaf dsfad daf ds</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="javascript/bootstrap.min.js"></script>
-  <script>
-    $('#tabs_kars a').click(function (e) {
-      e.preventDefault()
-      $(this).tab('show')
-    })
-  </script>
-  <script type="text/javascript">
-function financiamento(parcelas){  
-  var preco = preco2Number();
-  var parcela = preco / parcelas;
-  var parcelaComJuros = parcela * 1.001;
-  var precoFinal = parcelaComJuros * parcelas;
-
-  imprimeResultado(obterPreco(), parcelaComJuros, precoFinal);
-};
-
-function obterPreco(){
-  var precoContent = $2("preco_carro").textContent;
-  return precoContent;
+        </section>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascript/bootstrap.min.js"></script>
+    <script>
+        $('#tabs_kars a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
+    <script type="text/javascript">
+function $2(id) {
+    return document.getElementById(id);
 }
 
-function preco2Number(){
-  var preco = obterPreco().replace(/[.]/g,"").replace(",",".");
-  return preco;
+function obterPreco() {
+    var precoContent = $2("preco_carro").textContent;
+    return precoContent;
 }
 
-function exibeFinanciamento(){
-  $2("financiamento").classList.remove("invisible");
+function preco2Number() {
+    var preco = obterPreco().replace(/[.]/g, "").replace(",", ".");
+    return preco;
 }
 
-function $2(id){
-  return document.getElementById(id);
+function exibeFinanciamento() {
+    $2("financiamento").classList.remove("invisible");
 }
 
-function formataPreco(precoFinal){
-  var precoArredondado = Math.round(precoFinal).toString();
-
-  var tamanho = precoArredondado.length;
-  var precoComVirgula = "";
-  var n = -3;
-  
-  if(tamanho <= n * -1){
-    return parseFloat(precoFinal.toString()).toFixed(2).replace(".",",");
-  }
-
-  while((n + 3) > (tamanho * -1)){
-    if (tamanho >= n * -1){
-      precoComVirgula = precoArredondado.substr(n).substr(0,3) + "." + precoComVirgula;
-    } else {
-      precoComVirgula = precoArredondado.substr(0,(tamanho + (n+3)))+ "." + precoComVirgula 
-    }
-    n = n - 3;
-  }
-  precoComVirgula = precoComVirgula.substr(0,precoComVirgula.length - 1);
-  precoComVirgula = precoComVirgula + "," + parseFloat(precoFinal).toFixed(2).substr(-2)
-
-  return precoComVirgula;
-}
-
-function formataPrecoReduzida(precoFinal){
+function formataPrecoReduzida(precoFinal) {
     return precoFinal
-       .toFixed(2)
-       .replace(".", ",") 
-       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+             .toFixed(2)
+             .replace(".", ",")
+             .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 }
 
-function imprimeResultado(precoCarro, parcelaComJuros, precoFinal){
-  exibeFinanciamento();
-  
-  var conteudoHTML = "<p>Valor financiado: R$ " + precoCarro + "</p>";
-  conteudoHTML    += "<p>Valor da parcela: R$ " + formataPrecoReduzida(parcelaComJuros) +"</p>";
-  conteudoHTML    += "<p>Preço: R$ " + formataPrecoReduzida(precoFinal) +"</p>";
+function imprimeResultado(precoCarro, parcelaComJuros, precoFinal) {
+    exibeFinanciamento();
 
-  $2("detalhes_do_financiamento").innerHTML =  conteudoHTML;
+    var conteudoHTML = "<p>Valor financiado: R$ " + precoCarro + "</p>";
+    conteudoHTML        += "<p>Valor da parcela: R$ " + formataPrecoReduzida(parcelaComJuros) + "</p>";
+    conteudoHTML        += "<p>Preço: R$ " + formataPrecoReduzida(precoFinal) + "</p>";
+
+    $2("detalhes_do_financiamento").innerHTML =    conteudoHTML;
 }
-  </script>
+
+function financiamento(parcelas) {
+    var preco = preco2Number(),
+        parcela = preco / parcelas,
+        parcelaComJuros = parcela * 1.001,
+        precoFinal = parcelaComJuros * parcelas;
+
+    imprimeResultado(obterPreco(), parcelaComJuros, precoFinal);
+}
+
+function formataPreco(precoFinal) {
+    var precoArredondado = Math.round(precoFinal).toString(),
+        tamanho = precoArredondado.length,
+        precoComVirgula = "",
+        n = -3;
+ 
+    if (tamanho <= n * -1) {
+        return parseFloat(precoFinal.toString()).toFixed(2).replace(".", ",");
+    }
+
+    while ((n + 3) > (tamanho * -1)) {
+        if (tamanho >= n * -1) {
+            precoComVirgula = precoArredondado.substr(n).substr(0, 3) + "." + precoComVirgula;
+        } else {
+            precoComVirgula = precoArredondado.substr(0, (tamanho + (n + 3))) + "." + precoComVirgula;
+        }
+        n = n - 3;
+    }
+    precoComVirgula = precoComVirgula.substr(0, precoComVirgula.length - 1);
+    precoComVirgula = precoComVirgula + "," + parseFloat(precoFinal).toFixed(2).substr(-2);
+
+    return precoComVirgula;
+}
+    </script>
 </body>
 </html>
