@@ -43,7 +43,7 @@
         <div class="col-md-6 col-sm-12">
           <div class="row">
             <h1>Nome e Modelo do Carro</h1>
-            <h2>Preço: <span id="preco_carro">3.333.331,55</span> <small>(com financiamento)</small></h2>            
+            <h2>Preço: <span id="preco_carro">10.000,00</span> <small>(com financiamento)</small></h2>            
             <ul class="list-unstyled">
               <li>Banco de couro</li> 
               <li>Ar condicionado</li> 
@@ -58,6 +58,7 @@
               <h3>Detalhes do Financiamento</h3>
               <div class="container-fluid" id="detalhes_do_financiamento"></div>
             </div>
+            <div id="erroparcelas"></div>
           </div>
         </div>
       </div>
@@ -96,13 +97,44 @@
     })
   </script>
   <script type="text/javascript">
-function financiamento(parcelas){  
-  var preco = preco2Number();
-  var parcela = preco / parcelas;
-  var parcelaComJuros = parcela * 1.001;
-  var precoFinal = parcelaComJuros * parcelas;
+function financiamento(parcelas){ 
+  var percentualJuros = 1.001;
+  var entrada = parseFloat( prompt("Digite o valor da entrada!") );
+  var preco = parseFloat(preco2Number());
+  var qtdparcelas = prompt("Digite a quantidade de parcela!");
 
-  imprimeResultado(obterPreco(), parcelaComJuros, precoFinal);
+
+if (qtdparcelas < 1 || qtdparcelas > 60)
+{
+   document.getElementById("erroparcelas").innerHTML =  "Quantida de parcelas deve ser entre 1 e 60.";
+
+}
+else{
+
+  console.log(entrada);
+  if (entrada > (preco/2))
+  {
+    percentualJuros = 1;
+  } 
+  else 
+  {
+    percentualJuros = 1.001;
+  }
+
+  if (qtdparcelas < 24)
+  {
+    percentualJuros = percentualJuros + 0.0005;
+  }
+
+
+  var preco = preco2Number() - entrada ;
+  var parcela = preco / qtdparcelas;
+  var parcelaComJuros = parcela * percentualJuros;
+  var precoFinal = parcelaComJuros * qtdparcelas + entrada;
+  
+
+  imprimeResultado(obterPreco(), parcelaComJuros, precoFinal, entrada);
+}
 };
 
 function obterPreco(){
@@ -155,10 +187,11 @@ function formataPrecoReduzida(precoFinal){
        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 }
 
-function imprimeResultado(precoCarro, parcelaComJuros, precoFinal){
+function imprimeResultado(precoCarro, parcelaComJuros, precoFinal, entrada){
   exibeFinanciamento();
   
-  var conteudoHTML = "<p>Valor financiado: R$ " + precoCarro + "</p>";
+  var conteudoHTML = "<p>Valor financiado: R$ " + precoCarro + "</p>"; 
+  conteudoHTML    += "<p>Valor Entrada: R$ "+ entrada +"</p>";
   conteudoHTML    += "<p>Valor da parcela: R$ " + formataPrecoReduzida(parcelaComJuros) +"</p>";
   conteudoHTML    += "<p>Preço: R$ " + formataPrecoReduzida(precoFinal) +"</p>";
 
