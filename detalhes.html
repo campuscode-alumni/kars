@@ -43,7 +43,7 @@
         <div class="col-md-6 col-sm-12">
           <div class="row">
             <h1>Nome e Modelo do Carro</h1>
-            <h2>Preço: <span id="preco_carro">3.333.331,55</span> <small>(com financiamento)</small></h2>            
+            <h2>Preço: <span id="preco_carro">2000,00<!--3.333.331,55--></span> <small>(com financiamento)</small></h2>            
             <ul class="list-unstyled">
               <li>Banco de couro</li> 
               <li>Ar condicionado</li> 
@@ -54,6 +54,17 @@
             <button class="btn btn-success hidden-print" onclick="financiamento(12)">Detalhes Financiamento</button>
           </div>
           <div class="row">
+            <form role="form" onsubmit="return false">
+              <div class="form-group">
+                <label for="form-name">Entrada</label>
+                <input type="number" class="form-control input-sm" id="entrada" placeholder="R$ : 2000.00">
+              </div>
+              <div class="form-group">
+                <label for="form-name">Parcelas</label>
+                <input type="number" class="form-control input-sm" id="quantidade_parcelas" placeholder="12x">
+              </div>
+              <button onclick="financiamento()" class="btn btn-primary form-control">Calcular</button>
+            </form>
             <div class="col-md-12 invisible" id="financiamento">
               <h3>Detalhes do Financiamento</h3>
               <div class="container-fluid" id="detalhes_do_financiamento"></div>
@@ -96,14 +107,46 @@
     })
   </script>
   <script type="text/javascript">
-function financiamento(parcelas){  
-  var preco = preco2Number();
-  var parcela = preco / parcelas;
-  var parcelaComJuros = parcela * 1.001;
-  var precoFinal = parcelaComJuros * parcelas;
+  function comEntrada(){
+    valorEntrada = parseFloat(document.getElementById("entrada").value);
+    return valorEntrada;
+  }
 
-  imprimeResultado(obterPreco(), parcelaComJuros, precoFinal);
-};
+  function nParcelas(){
+    quantidadeParcela = parseFloat(document.getElementById("quantidade_parcelas").value);
+    return quantidadeParcela;
+  }
+
+  function validacaoEntrada(entradaTotal){
+    precoDoCarro = parseFloat(preco2Number());
+    if(entradaTotal > precoDoCarro){
+      document.getElementById("entrada").className = "form-control input-sm erro-form";
+      return true;
+    }
+    return false;
+  }
+
+  function financiamento(){  
+    var entradaComputada = comEntrada();
+    var parcelas = nParcelas();
+    if(validacaoEntrada(entradaComputada)){return}
+    if(parcelas >= 24){
+      var precoCapturado = parseFloat(preco2Number());
+      var preco = precoCapturado * 1.005;
+    }else{
+      var preco = parseFloat(preco2Number());
+    }
+    var precoTotal = preco - entradaComputada;
+    var parcela = precoTotal / parcelas;
+    var parcelaComputada = 0;
+    if(entradaComputada > preco / 2){
+      parcelaComputada = parcela;
+    }else{
+      parcelaComputada = parcela * 1.001;
+    }  
+    var precoFinal = parcelaComputada * parcelas;
+    imprimeResultado(obterPreco(), parcelaComputada, precoFinal);
+  }
 
 function obterPreco(){
   var precoContent = $2("preco_carro").textContent;
@@ -155,11 +198,11 @@ function formataPrecoReduzida(precoFinal){
        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 }
 
-function imprimeResultado(precoCarro, parcelaComJuros, precoFinal){
+function imprimeResultado(precoCarro, parcelaComputada, precoFinal){
   exibeFinanciamento();
   
   var conteudoHTML = "<p>Valor financiado: R$ " + precoCarro + "</p>";
-  conteudoHTML    += "<p>Valor da parcela: R$ " + formataPrecoReduzida(parcelaComJuros) +"</p>";
+  conteudoHTML    += "<p>Valor da parcela: R$ " + formataPrecoReduzida(parcelaComputada) +"</p>";
   conteudoHTML    += "<p>Preço: R$ " + formataPrecoReduzida(precoFinal) +"</p>";
 
   $2("detalhes_do_financiamento").innerHTML =  conteudoHTML;

@@ -10,3 +10,7 @@ body {
 #anuncios {
   margin-top: 20px;
 }
+
+.erro-form{
+	border-color: red;
+}
