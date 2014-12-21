@@ -1,0 +1,7 @@
+Requisito: Nosso cliente viu uma página de comparação de carros no Webmotors e quer a mesma funcionalidade para o Kars.
+
+Tarefa 1: Criar a página comparacao.html usando o mesmo padrão das demais e seguindo a especificao do arquivo kars-comparacao.pdf
+
+Tarefa 2: Ao clicar no botão 'Sugestão Kars' devemos abrir uma janela indicando um dos dois carros. Como este é um protótipo, por enquanto a sugestão pode ser aleatória a cada clique.
+
+Extra: O cliente disse que seria muito interessante oferecer a calculadora de financiamento também nessa página.
