@@ -1,0 +1,8 @@
+Requisito: Na página de contato precisamos validar se todos elementos do formulário foram preenchidos. Não é preciso enviar a mensagem por enquanto pois ainda estamos no protótipo.
+
+Tarefa 1: Validar se todos os campos foram prenchidos com algum valor ao clicar no botão 'Enviar'
+Tarefa 2: Exibir a mensagem de sucesso/erro de acordo com o resultado da validação
+
+Extras (pro cliente ficar feliz):
+1. Usar outro elemento HTML no campo mensagem para o usuário ter mais espaço.
+2. Validar se o email é um email válido.
